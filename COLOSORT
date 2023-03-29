@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>JavaScript Form Demo</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+	<body>
+		<style>
+input[type=text], input[type=email], input[type=number], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+		<div class="container">
+			<form action="signup.html" method="post" id="signup">
+				<h1>COLOSORT</h1>
+				<div class="field">
+					<label for="name">Name:</label>
+					<input type="text" id="name" name="name" placeholder="Enter your fullname" required/>
+					<small></small>
+				</div>
+
+				<div class="field">
+					<label for="email">Email:</label>
+				<input type="email" id="email"  size="30" required>
+				<small></small>
+				</div>
+
+				<div class="field">
+					<label for="rank">MERIT:</label>
+					<input type="number" id="rank" name="rank" placeholder="Enter your Rank" required/>
+					<small></small>
+				</div>
+				<div class="field">
+					<label for="district">District:</label>
+					<select name="district" id="district">
+						<option>Junagadh</option>
+						<option>Nadiad</option>
+						<option>Valsad</option>
+						<option>Surat</option>
+						<option>Bhavnagar</option>
+						<option>Rajkot</option>
+						</select>
+					<small></small>
+				</div>
+				<div class="field">
+					<label for="Category">Category:</label>
+					<input type="radio" name="category" value="General" required><big>General</big>
+					 <input type="radio" name="category" value="OBC"><big> OBC </big>
+					 <input type="radio" name="category" value="SC"><big> SC </big>
+
+					<small></small>
+				</div>
+				<div class="field">
+					<button type="submit" class="full">Submit</button>
+				</div>
+			</form>
+		</div>
+
+<div id="welcomeName"></div>
+
+<div id="valsad_1" style="display:none;">
+	<span>This is the List of Colleges Located in Valsad the List is according to your Rank, District and Category</span>
+	<ol>
+	  <li>Government Engineering College</li>
+	  <li>Shah NH College</li>
+	  <li>Dolat Usha College</li>
+	</ol> 
+
+	<span>Now this is the List of Colleges that is Sorted</span>
+	<ol>
+	  <li>Shah NH College</li>
+	  <li>Government Engineering College</li>
+	  <li>Dolat Usha College</li>
+	</ol>
+
+	<span>This are the Colleges for following Engineering Fields :</span>
+	<ol>
+	  <li>Computer Engineering</li>
+	  <li>Computer Science and Engineering</li>
+	  <li>Mechanical Engineering</li>
+	  <li>Civil Engineering</li>
+	  <li>Electrical Engineering</li>
+	  <li>Information Technology</li>
+	</ol>
+</div>		
+
+<div id="junagadh_1" style="display:none;">
+	<span>This is the List of Colleges that is Located in Junagadh the List is according to your Rank, District and Category</span>
+	<ol>
+	  <li>Balaji Institute of Engineering</li>
+	  <li>College of Engineering and Technology</li>
+	  <li>Shri Brahmanand Institute</li>
+	</ol> 
+
+	<span>Now this is the List of Colleges that is Sorted</span>
+	<ol>
+	  <li>Shri Brahmanand Institute</li>
+	  <li>Balaji Institute of Engineering</li>
+	  <li>College of Engineering and Technology</li>
+	</ol>
+</div>
+
+<div id="nadiad_1" style="display:none;">
+	<span>This is the List of Colleges that is Located in Nadiad the List is according to your Rank, District and Category</span>
+	<ol>
+	  <li>Dharmsinh Desai College</li>
+	  <li>Devang Patel Institute of Advance Techology and Research</li>
+	  <li>Institute of Engineering</li>
+	</ol> 
+
+	<span>Now This is the List of Colleges that is Sorted</span>
+	<ol>
+	  <li>Devang Patel Institute of Advance Technology and Research</li>
+	  <li>Dharmsinh Desai College</li>
+	  <li>Institute of Engineering</li>
+	</ol>
+</div>
+
+<div id="surat_1" style="display:none;">
+	<span>This is the List of Colleges that is Located in Surat the List is according to your Rank, District and Category</span>
+	<ol>
+	  <li>SHREE SWAMI ATMANAND SARASWATI INSTITUTE OF TECHNOLOGY</li>
+	  <li>C. K. PITHAWALA COLLEGE OF ENGINEERING & TECHNOLOGY</li>
+	  <li>PACIFIC SCHOOL OF ENGINEERING</li>
+	  <li>DR. S. & S.S. GHANDHY GOVERNMENT ENGINEERING COLLEGE, SURAT</li>
+	</ol> 
+
+	<span>Now This is the List of Colleges that is Sorted</span>
+	<ol>
+	  <li>C. K. PITHAWALA COLLEGE OF ENGINEERING & TECHNOLOGY</li>
+	  <li>DR. S. & S.S. GHANDHY GOVERNMENT ENGINEERING COLLEGE, SURAT</li>
+	  <li>PACIFIC SCHOOL OF ENGINEERING</li>
+	  <li>SHREE SWAMI ATMANAND SARASWATI INSTITUTE OF TECHNOLOGY</li>
+	</ol>
+</div>
+
+<div id="bhavnagar_1" style="display:none;">
+	<span>This is the List of Colleges that is Located in Bhavnagar the List is according to your Rank, District and Category</span>
+	<ol>
+	  <li>GOVERNMENT ENGINEERING COLLEGE, BHAVNAGAR</li>
+	  <li>SHANTILAL SHAH ENGINEERING COLLEGE, BHAVNAGAR</li>
+	  <li>GYANMANJARI INSTITUTE OF TECHNOLOG</li>
+	  <li>SHRI J. M. SABVA INSTITUTE OF ENGINEERING & TECHNOLOGY</li>
+	</ol> 
+
+	<span>Now This is the List of Colleges that is Sorted</span>
+	<ol>
+	  <li>GOVERNMENT ENGINEERING COLLEGE, BHAVNAGAR</li>
+	  <li>GYANMANJARI INSTITUTE OF TECHNOLOG</li>
+	  <li>SHANTILAL SHAH ENGINEERING COLLEGE, BHAVNAGAR</li>
+	  <li>SHRI J. M. SABVA INSTITUTE OF ENGINEERING & TECHNOLOGY</li>
+	</ol>
+</div>
+
+<div id="rajkot_1" style="display:none;">
+	<span>This is the List of Colleges that is Located in Rajkot the List is according to your Rank, District and Category</span>
+	<ol>
+	  <li>V.V.P. ENGINEERING COLLEGE</li>
+	  <li>MARWADI EDUCATION FOUNDATION’S GROUP OF INSTITUTIONS-FACULTY OF ENGINEERING</li>
+	  <li>B. H. GARDI COLLEGE OF ENGINEERING & TECHNOLOGY</li>
+	</ol> 
+
+	<span>Now This is the List of Colleges that is Sorted</span>
+	<ol>
+	  <li>B. H. GARDI COLLEGE OF ENGINEERING & TECHNOLOGY</li>
+	  <li>MARWADI EDUCATION FOUNDATION’S GROUP OF INSTITUTIONS-FACULTY OF ENGINEERING</li>
+	  <li>V.V.P. ENGINEERING COLLEGE</li>
+	</ol>
+</div>
+
+<div id="valsad_2" style="display:none;">
+	<span>This is the List of Colleges that is Located in Nadiad the List is according to the Rank, District and Category</span>
+	<ol>
+	  <li>Government Engineering College</li>
+	  <li>Shah NH College</li>
+	  <li>Dolat Usha College</li>
+	</ol> 
+
+	<span>Now this is the List of Colleges that is Sorted</span>
+	<ol>
+	  <li>Shah NH College</li>
+	  <li>Government Engineering College</li>
+	  <li>Dolat Usha College</li>
+	</ol>
+
+</div>		
+
+<div id="junagadh_2" style="display:none;">
+	<span>This is the List of Colleges Located in Junagadh the List is according to Rank, District and Category</span>
+	<ol>
+	  <li>Balaji Institute of Engineering</li>
+	  <li>College of Engineering and Technology</li>
+	  <li>Shri Brahmanand Institute</li>
+	</ol> 
+
+	<span>Now This is the List of Colleges that is Sorted</span>
+	<ol>
+	  <li>Shri Brahmanand Institute</li>
+	  <li>Balaji Institute of Engineering</li>
+	  <li>College of Engineering and Technology</li>
+	</ol>
+</div>
+
+<div id="nadiad_2" style="display:none;">
+	<span>This is the List of Colleges that is Located in Nadiad the List is according to Rank, District and Category</span>
+	<ol>
+	  <li>Dharmsinh Desai College</li>
+	  <li>Devang Patel Institute of Advance Techology and Research</li>
+	  <li>Institute of Engineering</li>
+	</ol> 
+
+	<span>Now This is the List of Colleges that is Sorted</span>
+	<ol>
+	  <li>Devang Patel Institute of Advance Technology and Research</li>
+	  <li>Dharmsinh Desai College</li>
+	  <li>Institute of Engineering</li>
+	</ol>
+
+	<span>This are the Colleges for following Engineering Fields :</span>
+	<ol>
+	  <li>Computer Engineering</li>
+	  <li>Computer Science and Engineering</li>
+	  <li>Mechanical Engineering</li>
+	  <li>Civil Engineering</li>
+	  <li>Electrical Engineering</li>
+	  <li>Information Technology</li>
+	</ol>
+</div>
+
+<div id="surat_2" style="display:none;">
+	<span>This is the List of Colleges that is Located in Nadiad the List is according to Rank, District and Category</span>
+	<ol>
+	  <li>SHREE SWAMI ATMANAND SARASWATI INSTITUTE OF TECHNOLOGY</li>
+	  <li>C. K. PITHAWALA COLLEGE OF ENGINEERING & TECHNOLOGY</li>
+	  <li>PACIFIC SCHOOL OF ENGINEERING</li>
+	  <li>DR. S. & S.S. GHANDHY GOVERNMENT ENGINEERING COLLEGE, SURAT</li>
+	</ol> 
+
+	<span>Now This is the List of Colleges that is Sorted</span>
+	<ol>
+	  <li>C. K. PITHAWALA COLLEGE OF ENGINEERING & TECHNOLOGY</li>
+	  <li>DR. S. & S.S. GHANDHY GOVERNMENT ENGINEERING COLLEGE, SURAT</li>
+	  <li>PACIFIC SCHOOL OF ENGINEERING</li>
+	  <li>SHREE SWAMI ATMANAND SARASWATI INSTITUTE OF TECHNOLOGY</li>
+	</ol>
+</div>
+
+<div id="bhavnagar_2" style="display:none;">
+	<span>This is the List of Colleges that is Located in Bhavnagar the List is according to Rank, District and Category</span>
+	<ol>
+	  <li>GOVERNMENT ENGINEERING COLLEGE, BHAVNAGAR</li>
+	  <li>SHANTILAL SHAH ENGINEERING COLLEGE, BHAVNAGAR</li>
+	  <li>GYANMANJARI INSTITUTE OF TECHNOLOG</li>
+	  <li>SHRI J. M. SABVA INSTITUTE OF ENGINEERING & TECHNOLOGY</li>
+	</ol> 
+
+	<span>Now This is the List of Colleges that is Sorted</span>
+	<ol>
+	  <li>GOVERNMENT ENGINEERING COLLEGE, BHAVNAGAR</li>
+	  <li>GYANMANJARI INSTITUTE OF TECHNOLOG</li>
+	  <li>SHANTILAL SHAH ENGINEERING COLLEGE, BHAVNAGAR</li>
+	  <li>SHRI J. M. SABVA INSTITUTE OF ENGINEERING & TECHNOLOGY</li>
+	</ol>
+</div>
+
+<div id="rajkot_2" style="display:none;">
+	<span>This is the List of Colleges that is Located in Rajkot the List is according to Rank, District and Category</span>
+	<ol>
+	  <li>V.V.P. ENGINEERING COLLEGE</li>
+	  <li>MARWADI EDUCATION FOUNDATION’S GROUP OF INSTITUTIONS-FACULTY OF ENGINEERING</li>
+	  <li>B. H. GARDI COLLEGE OF ENGINEERING & TECHNOLOGY</li>
+	</ol> 
+
+	<span>Now This is the List of Colleges that is Sorted</span>
+	<ol>
+	  <li>B. H. GARDI COLLEGE OF ENGINEERING & TECHNOLOGY</li>
+	  <li>MARWADI EDUCATION FOUNDATION’S GROUP OF INSTITUTIONS-FACULTY OF ENGINEERING</li>
+	  <li>V.V.P. ENGINEERING COLLEGE</li>
+	</ol>
+</div>
+
+<div id="valsad_3" style="display:none;">
+	<span>This is the List of Colleges Loacted in Valsad and the List is accordng to Rank, District and Category</span>
+	<ol>
+	  <li>Government Engineering College</li>
+	  <li>Shah NH College</li>
+	  <li>Dolat Usha College</li>
+	</ol> 
+
+	<span>Now this is the List of Colleges that is Sorted</span>
+	<ol>
+	  <li>Shah NH College</li>
+	  <li>Government Engineering College</li>
+	  <li>Dolat Usha College</li>
+	</ol>
+
+</div>		
+
+<div id="junagadh_3" style="display:none;">
+	<span>This is the List of Colleges Located in Junagadh and the List is according to Rank, District and Category</span>
+	<ol>
+	  <li>Balaji Institute of Engineering</li>
+	  <li>College of Engineering and Technology</li>
+	  <li>Shri Brahmanand Institute</li>
+	</ol> 
+
+	<span>Now This is the List of Colleges that is Sorted</span>
+	<ol>
+	  <li>Shri Brahmanand Institute</li>
+	  <li>Balaji Institute of Engineering</li>
+	  <li>College of Engineering and Technology</li>
+	</ol>
+
+</div>
+
+<div id="nadiad_3" style="display:none;">
+	<span>This is the List of Colleges that is Located in Nadiad and the List is according to th Rank, District and Category</span>
+	<ol>
+	  <li>Dharmsinh Desai College</li>
+	  <li>Devang Patel Institute of Advance Techology and Research</li>
+	  <li>Institute of Engineering</li>
+	</ol> 
+
+	<span>Now This is the List of Colleges that is Sorted</span>
+	<ol>
+	  <li>Devang Patel Institute of Advance Technology and Research</li>
+	  <li>Dharmsinh Desai College</li>
+	  <li>Institute of Engineering</li>
+	</ol>
+
+	<span>This are the Colleges for following Engineering Fields :</span>
+	<ol>
+	  <li>Computer Engineering</li>
+	  <li>Computer Science and Engineering</li>
+	  <li>Mechanical Engineering</li>
+	  <li>Civil Engineering</li>
+	  <li>Electrical Engineering</li>
+	  <li>Information Technology</li>
+	</ol>
+
+</div>
+
+<div id="surat_3" style="display:none;">
+	<span>This is the List of Colleges that is Located in Nadiad the List is according to Rank, District and Category</span>
+	<ol>
+	  <li>SHREE SWAMI ATMANAND SARASWATI INSTITUTE OF TECHNOLOGY</li>
+	  <li>C. K. PITHAWALA COLLEGE OF ENGINEERING & TECHNOLOGY</li>
+	  <li>PACIFIC SCHOOL OF ENGINEERING</li>
+	  <li>DR. S. & S.S. GHANDHY GOVERNMENT ENGINEERING COLLEGE, SURAT</li>
+	</ol> 
+
+	<span>Now This is the List of Colleges that is Sorted</span>
+	<ol>
+	  <li>C. K. PITHAWALA COLLEGE OF ENGINEERING & TECHNOLOGY</li>
+	  <li>DR. S. & S.S. GHANDHY GOVERNMENT ENGINEERING COLLEGE, SURAT</li>
+	  <li>PACIFIC SCHOOL OF ENGINEERING</li>
+	  <li>SHREE SWAMI ATMANAND SARASWATI INSTITUTE OF TECHNOLOGY</li>
+	</ol>
+</div>
+
+<div id="bhavnagar_3" style="display:none;">
+	<span>This is the List of Colleges that is Located in Bhavnagar the List is according to Rank, District and Category</span>
+	<ol>
+	  <li>GOVERNMENT ENGINEERING COLLEGE, BHAVNAGAR</li>
+	  <li>SHANTILAL SHAH ENGINEERING COLLEGE, BHAVNAGAR</li>
+	  <li>GYANMANJARI INSTITUTE OF TECHNOLOG</li>
+	  <li>SHRI J. M. SABVA INSTITUTE OF ENGINEERING & TECHNOLOGY</li>
+	</ol> 
+
+	<span>Now This is the List of Colleges that is Sorted</span>
+	<ol>
+	  <li>GOVERNMENT ENGINEERING COLLEGE, BHAVNAGAR</li>
+	  <li>GYANMANJARI INSTITUTE OF TECHNOLOG</li>
+	  <li>SHANTILAL SHAH ENGINEERING COLLEGE, BHAVNAGAR</li>
+	  <li>SHRI J. M. SABVA INSTITUTE OF ENGINEERING & TECHNOLOGY</li>
+	</ol>
+</div>
+
+<div id="rajkot_3" style="display:none;">
+	<span>This is the List of Colleges that is Located in Rajkot the List is according to Rank, District and Category</span>
+	<ol>
+	  <li>V.V.P. ENGINEERING COLLEGE</li>
+	  <li>MARWADI EDUCATION FOUNDATION’S GROUP OF INSTITUTIONS-FACULTY OF ENGINEERING</li>
+	  <li>B. H. GARDI COLLEGE OF ENGINEERING & TECHNOLOGY</li>
+	</ol> 
+
+	<span>Now This is the List of Colleges that is Sorted</span>
+	<ol>
+	  <li>B. H. GARDI COLLEGE OF ENGINEERING & TECHNOLOGY</li>
+	  <li>MARWADI EDUCATION FOUNDATION’S GROUP OF INSTITUTIONS-FACULTY OF ENGINEERING</li>
+	  <li>V.V.P. ENGINEERING COLLEGE</li>
+	</ol>
+</div>
+
+<div id="errorDiv" style="display:none;">
+<span>Enter valid Rank, District and Category</span>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+		<script>
+        
+        // show a message with a type of the input
+function showMessage(input, message, type) {
+	// get the small element and set the message
+	const msg = input.parentNode.querySelector("small");
+	msg.innerText = message;
+	// update the class for the input
+	input.className = type ? "success" : "error";
+	return type;
+}
+
+function showError(input, message) {
+	return showMessage(input, message, false);
+}
+
+function showSuccess(input) {
+	return showMessage(input, "", true);
+}
+
+function hasValue(input, message) {
+	if (input.value.trim() === "") {
+		return showError(input, message);
+	}
+	return showSuccess(input);
+}
+
+
+
+const form = document.querySelector("#signup");
+
+const NAME_REQUIRED = "Please enter your name";
+const EMAIL_REQUIRED = "Please enter your email";
+const EMAIL_INVALID = "Please enter a correct email address format";
+
+form.addEventListener("submit", function (event) {
+	// stop form submission
+	event.preventDefault();
+
+	// validate the form
+	let nameValid = hasValue(form.elements["name"], NAME_REQUIRED);
+	let rankValid = hasValue(form.elements["rank"], NAME_REQUIRED);
+	// if valid, submit the form.
+	if (nameValid && rankValid) {
+
+		var name = document.getElementById("name").value;
+		var r = document.getElementById("rank").value;
+		var d = document.getElementById("district").value;
+		var ele = document.getElementsByName('category');
+		c = '';
+        for(i = 0; i < ele.length; i++) {
+            if(ele[i].checked){
+            	c = ele[i].value;
+            }
+            
+        }
+
+var printVar = '';
+
+const div = document.getElementById('welcomeName')
+div.innerHTML = '<h3>Hello '+name+'</h3>\n <h3>Please see result based on your request: <h3>';
+
+
+if ((r > 1 && r < 5000) && (d == "Valsad" || "Junagadh" || "Nadiad" || "Surat" || "Bhavnagar" || "Rajkot")  && (c == "SC" || "OBC" || "General")){
+  if(d == "Valsad"){
+  			document.getElementById("valsad_1").style.display = "block";
+  			document.getElementById("junagadh_1").style.display = "none";
+  			document.getElementById("nadiad_1").style.display = "none";
+  			document.getElementById("surat_1").style.display = "none";
+  			document.getElementById("bhavnagar_1").style.display = "none";
+  			document.getElementById("rajkot_1").style.display = "none";
+
+  			document.getElementById("valsad_2").style.display = "none";
+  			document.getElementById("junagadh_2").style.display = "none";
+  			document.getElementById("nadiad_2").style.display = "none";
+  			document.getElementById("surat_2").style.display = "none";
+  			document.getElementById("bhavnagar_2").style.display = "none";
+  			document.getElementById("rajkot_2").style.display = "none";
+
+  			document.getElementById("valsad_3").style.display = "none";
+  			document.getElementById("junagadh_3").style.display = "none";
+  			document.getElementById("nadiad_3").style.display = "none";
+  			document.getElementById("surat_3").style.display = "none";
+  			document.getElementById("bhavnagar_3").style.display = "none";
+  			document.getElementById("rajkot_3").style.display = "none";
+
+  			document.getElementById("errorDiv").style.display = "none";
+}
+  if(d == "Junagadh"){
+	      document.getElementById("valsad_1").style.display = "none";
+  			document.getElementById("junagadh_1").style.display = "block";
+  			document.getElementById("nadiad_1").style.display = "none";
+  			document.getElementById("surat_1").style.display = "none";
+  			document.getElementById("bhavnagar_1").style.display = "none";
+  			document.getElementById("rajkot_1").style.display = "none";
+
+  			document.getElementById("valsad_2").style.display = "none";
+  			document.getElementById("junagadh_2").style.display = "none";
+  			document.getElementById("nadiad_2").style.display = "none";
+  			document.getElementById("surat_2").style.display = "none";
+  			document.getElementById("bhavnagar_2").style.display = "none";
+  			document.getElementById("rajkot_2").style.display = "none";
+
+  			document.getElementById("valsad_3").style.display = "none";
+  			document.getElementById("junagadh_3").style.display = "none";
+  			document.getElementById("nadiad_3").style.display = "none";
+  			document.getElementById("surat_3").style.display = "none";
+  			document.getElementById("bhavnagar_3").style.display = "none";
+  			document.getElementById("rajkot_3").style.display = "none";
+
+  			document.getElementById("errorDiv").style.display = "none";
+	}
+  if(d == "Nadiad"){
+			document.getElementById("valsad_1").style.display = "none";
+  			document.getElementById("junagadh_1").style.display = "none";
+  			document.getElementById("nadiad_1").style.display = "block";
+  			document.getElementById("surat_1").style.display = "none";
+  			document.getElementById("bhavnagar_1").style.display = "none";
+  			document.getElementById("rajkot_1").style.display = "none";
+
+  			document.getElementById("valsad_2").style.display = "none";
+  			document.getElementById("junagadh_2").style.display = "none";
+  			document.getElementById("nadiad_2").style.display = "none";
+  			document.getElementById("surat_2").style.display = "none";
+  			document.getElementById("bhavnagar_2").style.display = "none";
+  			document.getElementById("rajkot_2").style.display = "none";
+
+  			document.getElementById("valsad_3").style.display = "none";
+  			document.getElementById("junagadh_3").style.display = "none";
+  			document.getElementById("nadiad_3").style.display = "none";
+  			document.getElementById("surat_3").style.display = "none";
+  			document.getElementById("bhavnagar_3").style.display = "none";
+  			document.getElementById("rajkot_3").style.display = "none";
+
+  			document.getElementById("errorDiv").style.display = "none";
+      }
+
+      if(d == "Surat"){
+			document.getElementById("valsad_1").style.display = "none";
+  			document.getElementById("junagadh_1").style.display = "none";
+  			document.getElementById("nadiad_1").style.display = "none";
+  			document.getElementById("surat_1").style.display = "block";
+  			document.getElementById("bhavnagar_1").style.display = "none";
+  			document.getElementById("rajkot_1").style.display = "none";
+
+  			document.getElementById("valsad_2").style.display = "none";
+  			document.getElementById("junagadh_2").style.display = "none";
+  			document.getElementById("nadiad_2").style.display = "none";
+  			document.getElementById("surat_2").style.display = "none";
+  			document.getElementById("bhavnagar_2").style.display = "none";
+  			document.getElementById("rajkot_2").style.display = "none";
+
+  			document.getElementById("valsad_3").style.display = "none";
+  			document.getElementById("junagadh_3").style.display = "none";
+  			document.getElementById("nadiad_3").style.display = "none";
+  			document.getElementById("surat_3").style.display = "none";
+  			document.getElementById("bhavnagar_3").style.display = "none";
+  			document.getElementById("rajkot_3").style.display = "none";
+
+  			document.getElementById("errorDiv").style.display = "none";
+      }
+
+      if(d == "Bhavnagar"){
+			document.getElementById("valsad_1").style.display = "none";
+  			document.getElementById("junagadh_1").style.display = "none";
+  			document.getElementById("nadiad_1").style.display = "none";
+  			document.getElementById("surat_1").style.display = "none";
+  			document.getElementById("bhavnagar_1").style.display = "block";
+  			document.getElementById("rajkot_1").style.display = "none";
+
+  			document.getElementById("valsad_2").style.display = "none";
+  			document.getElementById("junagadh_2").style.display = "none";
+  			document.getElementById("nadiad_2").style.display = "none";
+  			document.getElementById("surat_2").style.display = "none";
+  			document.getElementById("bhavnagar_2").style.display = "none";
+  			document.getElementById("rajkot_2").style.display = "none";
+
+  			document.getElementById("valsad_3").style.display = "none";
+  			document.getElementById("junagadh_3").style.display = "none";
+  			document.getElementById("nadiad_3").style.display = "none";
+  			document.getElementById("surat_3").style.display = "none";
+  			document.getElementById("bhavnagar_3").style.display = "none";
+  			document.getElementById("rajkot_3").style.display = "none";
+
+  			document.getElementById("errorDiv").style.display = "none";
+      }
+
+      if(d == "Rajkot"){
+			document.getElementById("valsad_1").style.display = "none";
+  			document.getElementById("junagadh_1").style.display = "none";
+  			document.getElementById("nadiad_1").style.display = "none";
+  			document.getElementById("surat_1").style.display = "none";
+  			document.getElementById("bhavnagar_1").style.display = "none";
+  			document.getElementById("rajkot_1").style.display = "block";
+
+  			document.getElementById("valsad_2").style.display = "none";
+  			document.getElementById("junagadh_2").style.display = "none";
+  			document.getElementById("nadiad_2").style.display = "none";
+  			document.getElementById("surat_2").style.display = "none";
+  			document.getElementById("bhavnagar_2").style.display = "none";
+  			document.getElementById("rajkot_2").style.display = "none";
+
+  			document.getElementById("valsad_3").style.display = "none";
+  			document.getElementById("junagadh_3").style.display = "none";
+  			document.getElementById("nadiad_3").style.display = "none";
+  			document.getElementById("surat_3").style.display = "none";
+  			document.getElementById("bhavnagar_3").style.display = "none";
+  			document.getElementById("rajkot_3").style.display = "none";
+
+  			document.getElementById("errorDiv").style.display = "none";
+      }
+}
+else if ((r > 5000 && r < 10000)  && (d == "Junagadh" || "Valsad" || "Nadiad" || "Surat" || "Bhavnagar" || "Rajkot")  && (c == "OBC" || "SC" || "General")){
+  if(d == "Valsad"){
+  			document.getElementById("valsad_1").style.display = "none";
+  			document.getElementById("junagadh_1").style.display = "none";
+  			document.getElementById("nadiad_1").style.display = "none";
+  			document.getElementById("surat_1").style.display = "none";
+  			document.getElementById("bhavnagar_1").style.display = "none";
+  			document.getElementById("rajkot_1").style.display = "none";
+
+  			document.getElementById("valsad_2").style.display = "block";
+  			document.getElementById("junagadh_2").style.display = "none";
+  			document.getElementById("nadiad_2").style.display = "none";
+  			document.getElementById("surat_2").style.display = "none";
+  			document.getElementById("bhavnagar_2").style.display = "none";
+  			document.getElementById("rajkot_2").style.display = "none";
+
+  			document.getElementById("valsad_3").style.display = "none";
+  			document.getElementById("junagadh_3").style.display = "none";
+  			document.getElementById("nadiad_3").style.display = "none";
+  			document.getElementById("surat_3").style.display = "none";
+  			document.getElementById("bhavnagar_3").style.display = "none";
+  			document.getElementById("rajkot_3").style.display = "none";
+
+  			document.getElementById("errorDiv").style.display = "none";
+	    
+    }
+  if(d == "Junagadh"){
+  			document.getElementById("valsad_1").style.display = "none";
+  			document.getElementById("junagadh_1").style.display = "none";
+  			document.getElementById("nadiad_1").style.display = "none";
+  			document.getElementById("surat_1").style.display = "none";
+  			document.getElementById("bhavnagar_1").style.display = "none";
+  			document.getElementById("rajkot_1").style.display = "none";
+
+  			document.getElementById("valsad_2").style.display = "none";
+  			document.getElementById("junagadh_2").style.display = "block";
+  			document.getElementById("nadiad_2").style.display = "none";
+  			document.getElementById("surat_2").style.display = "none";
+  			document.getElementById("bhavnagar_2").style.display = "none";
+  			document.getElementById("rajkot_2").style.display = "none";
+
+  			document.getElementById("valsad_3").style.display = "none";
+  			document.getElementById("junagadh_3").style.display = "none";
+  			document.getElementById("nadiad_3").style.display = "none";
+  			document.getElementById("surat_3").style.display = "none";
+  			document.getElementById("bhavnagar_3").style.display = "none";
+  			document.getElementById("rajkot_3").style.display = "none";
+
+  			document.getElementById("errorDiv").style.display = "none";
+	    
+    }
+  if(d == "Nadiad"){
+  			document.getElementById("valsad_1").style.display = "none";
+  			document.getElementById("junagadh_1").style.display = "none";
+  			document.getElementById("nadiad_1").style.display = "none";
+  			document.getElementById("surat_1").style.display = "none";
+  			document.getElementById("bhavnagar_1").style.display = "none";
+  			document.getElementById("rajkot_1").style.display = "none";
+
+  			document.getElementById("valsad_2").style.display = "none";
+  			document.getElementById("junagadh_2").style.display = "none";
+  			document.getElementById("nadiad_2").style.display = "block";
+  			document.getElementById("surat_2").style.display = "none";
+  			document.getElementById("bhavnagar_2").style.display = "none";
+  			document.getElementById("rajkot_2").style.display = "none";
+
+  			document.getElementById("valsad_3").style.display = "none";
+  			document.getElementById("junagadh_3").style.display = "none";
+  			document.getElementById("nadiad_3").style.display = "none";
+  			document.getElementById("surat_3").style.display = "none";
+  			document.getElementById("bhavnagar_3").style.display = "none";
+  			document.getElementById("rajkot_3").style.display = "none";
+
+  			document.getElementById("errorDiv").style.display = "none";
+	    
+    }
+    if(d == "Surat"){
+			document.getElementById("valsad_1").style.display = "none";
+  			document.getElementById("junagadh_1").style.display = "none";
+  			document.getElementById("nadiad_1").style.display = "none";
+  			document.getElementById("surat_1").style.display = "none";
+  			document.getElementById("bhavnagar_1").style.display = "none";
+  			document.getElementById("rajkot_1").style.display = "none";
+
+  			document.getElementById("valsad_2").style.display = "none";
+  			document.getElementById("junagadh_2").style.display = "none";
+  			document.getElementById("nadiad_2").style.display = "none";
+  			document.getElementById("surat_2").style.display = "block";
+  			document.getElementById("bhavnagar_2").style.display = "none";
+  			document.getElementById("rajkot_2").style.display = "none";
+
+  			document.getElementById("valsad_3").style.display = "none";
+  			document.getElementById("junagadh_3").style.display = "none";
+  			document.getElementById("nadiad_3").style.display = "none";
+  			document.getElementById("surat_3").style.display = "none";
+  			document.getElementById("bhavnagar_3").style.display = "none";
+  			document.getElementById("rajkot_3").style.display = "none";
+
+  			document.getElementById("errorDiv").style.display = "none";
+      }
+
+      if(d == "Bhavnagar"){
+			document.getElementById("valsad_1").style.display = "none";
+  			document.getElementById("junagadh_1").style.display = "none";
+  			document.getElementById("nadiad_1").style.display = "none";
+  			document.getElementById("surat_1").style.display = "none";
+  			document.getElementById("bhavnagar_1").style.display = "none";
+  			document.getElementById("rajkot_1").style.display = "none";
+
+  			document.getElementById("valsad_2").style.display = "none";
+  			document.getElementById("junagadh_2").style.display = "none";
+  			document.getElementById("nadiad_2").style.display = "none";
+  			document.getElementById("surat_2").style.display = "none";
+  			document.getElementById("bhavnagar_2").style.display = "block";
+  			document.getElementById("rajkot_2").style.display = "none";
+
+  			document.getElementById("valsad_3").style.display = "none";
+  			document.getElementById("junagadh_3").style.display = "none";
+  			document.getElementById("nadiad_3").style.display = "none";
+  			document.getElementById("surat_3").style.display = "none";
+  			document.getElementById("bhavnagar_3").style.display = "none";
+  			document.getElementById("rajkot_3").style.display = "none";
+
+  			document.getElementById("errorDiv").style.display = "none";
+      }
+
+      if(d == "Rajkot"){
+			document.getElementById("valsad_1").style.display = "none";
+  			document.getElementById("junagadh_1").style.display = "none";
+  			document.getElementById("nadiad_1").style.display = "none";
+  			document.getElementById("surat_1").style.display = "none";
+  			document.getElementById("bhavnagar_1").style.display = "none";
+  			document.getElementById("rajkot_1").style.display = "none";
+
+  			document.getElementById("valsad_2").style.display = "none";
+  			document.getElementById("junagadh_2").style.display = "none";
+  			document.getElementById("nadiad_2").style.display = "none";
+  			document.getElementById("surat_2").style.display = "none";
+  			document.getElementById("bhavnagar_2").style.display = "none";
+  			document.getElementById("rajkot_2").style.display = "block";
+
+  			document.getElementById("valsad_3").style.display = "none";
+  			document.getElementById("junagadh_3").style.display = "none";
+  			document.getElementById("nadiad_3").style.display = "none";
+  			document.getElementById("surat_3").style.display = "none";
+  			document.getElementById("bhavnagar_3").style.display = "none";
+  			document.getElementById("rajkot_3").style.display = "none";
+
+  			document.getElementById("errorDiv").style.display = "none";
+      }
+  }
+
+else if ((r > 10000 && r < 19000)  && (d == "Nadiad" || "Valsad" || "Junagadh" || "Surat" || "Bhavnagar" || "Rajkot")  && (c == "General" || "SC" || "OBC" )){
+  if(d == "Valsad"){
+  			document.getElementById("valsad_1").style.display = "none";
+  			document.getElementById("junagadh_1").style.display = "none";
+  			document.getElementById("nadiad_1").style.display = "none";
+  			document.getElementById("surat_1").style.display = "none";
+  			document.getElementById("bhavnagar_1").style.display = "none";
+  			document.getElementById("rajkot_1").style.display = "none";
+
+
+  			document.getElementById("valsad_2").style.display = "none";
+  			document.getElementById("junagadh_2").style.display = "none";
+  			document.getElementById("nadiad_2").style.display = "none";
+  			document.getElementById("surat_2").style.display = "none";
+  			document.getElementById("bhavnagar_2").style.display = "none";
+  			document.getElementById("rajkot_2").style.display = "none";
+
+  			document.getElementById("valsad_3").style.display = "block";
+  			document.getElementById("junagadh_3").style.display = "none";
+  			document.getElementById("nadiad_3").style.display = "none";
+  			document.getElementById("surat_3").style.display = "none";
+  			document.getElementById("bhavnagar_3").style.display = "none";
+  			document.getElementById("rajkot_3").style.display = "none";
+
+  			document.getElementById("errorDiv").style.display = "none";
+	    
+    }
+  if(d == "Junagadh"){
+  			document.getElementById("valsad_1").style.display = "none";
+  			document.getElementById("junagadh_1").style.display = "none";
+  			document.getElementById("nadiad_1").style.display = "none";
+  			document.getElementById("surat_1").style.display = "none";
+  			document.getElementById("bhavnagar_1").style.display = "none";
+  			document.getElementById("rajkot_1").style.display = "none";
+
+
+  			document.getElementById("valsad_2").style.display = "none";
+  			document.getElementById("junagadh_2").style.display = "none";
+  			document.getElementById("nadiad_2").style.display = "none";
+  			document.getElementById("surat_2").style.display = "none";
+  			document.getElementById("bhavnagar_2").style.display = "none";
+  			document.getElementById("rajkot_2").style.display = "none";
+
+  			document.getElementById("valsad_3").style.display = "none";
+  			document.getElementById("junagadh_3").style.display = "block";
+  			document.getElementById("nadiad_3").style.display = "none";
+  			document.getElementById("surat_3").style.display = "none";
+  			document.getElementById("bhavnagar_3").style.display = "none";
+  			document.getElementById("rajkot_3").style.display = "none";
+
+  			document.getElementById("errorDiv").style.display = "none";
+	    	
+    }
+    if(d == "Nadiad"){
+    		document.getElementById("valsad_1").style.display = "none";
+  			document.getElementById("junagadh_1").style.display = "none";
+  			document.getElementById("nadiad_1").style.display = "none";
+  			document.getElementById("surat_1").style.display = "none";
+  			document.getElementById("bhavnagar_1").style.display = "none";
+  			document.getElementById("rajkot_1").style.display = "none";
+
+
+  			document.getElementById("valsad_2").style.display = "none";
+  			document.getElementById("junagadh_2").style.display = "none";
+  			document.getElementById("nadiad_2").style.display = "none";
+  			document.getElementById("surat_2").style.display = "none";
+  			document.getElementById("bhavnagar_2").style.display = "none";
+  			document.getElementById("rajkot_2").style.display = "none";
+
+  			document.getElementById("valsad_3").style.display = "none";
+  			document.getElementById("junagadh_3").style.display = "none";
+  			document.getElementById("nadiad_3").style.display = "block";
+  			document.getElementById("surat_3").style.display = "none";
+  			document.getElementById("bhavnagar_3").style.display = "none";
+  			document.getElementById("rajkot_3").style.display = "none";
+
+  			document.getElementById("errorDiv").style.display = "none";
+	      	
+      }
+      if(d == "Surat"){
+			document.getElementById("valsad_1").style.display = "none";
+  			document.getElementById("junagadh_1").style.display = "none";
+  			document.getElementById("nadiad_1").style.display = "none";
+  			document.getElementById("surat_1").style.display = "none";
+  			document.getElementById("bhavnagar_1").style.display = "none";
+  			document.getElementById("rajkot_1").style.display = "none";
+
+  			document.getElementById("valsad_2").style.display = "none";
+  			document.getElementById("junagadh_2").style.display = "none";
+  			document.getElementById("nadiad_2").style.display = "none";
+  			document.getElementById("surat_2").style.display = "none";
+  			document.getElementById("bhavnagar_2").style.display = "none";
+  			document.getElementById("rajkot_2").style.display = "none";
+
+  			document.getElementById("valsad_3").style.display = "none";
+  			document.getElementById("junagadh_3").style.display = "none";
+  			document.getElementById("nadiad_3").style.display = "none";
+  			document.getElementById("surat_3").style.display = "block";
+  			document.getElementById("bhavnagar_3").style.display = "none";
+  			document.getElementById("rajkot_3").style.display = "none";
+
+  			document.getElementById("errorDiv").style.display = "none";
+      }
+
+      if(d == "Bhavnagar"){
+			document.getElementById("valsad_1").style.display = "none";
+  			document.getElementById("junagadh_1").style.display = "none";
+  			document.getElementById("nadiad_1").style.display = "none";
+  			document.getElementById("surat_1").style.display = "none";
+  			document.getElementById("bhavnagar_1").style.display = "none";
+  			document.getElementById("rajkot_1").style.display = "none";
+
+  			document.getElementById("valsad_2").style.display = "none";
+  			document.getElementById("junagadh_2").style.display = "none";
+  			document.getElementById("nadiad_2").style.display = "none";
+  			document.getElementById("surat_2").style.display = "none";
+  			document.getElementById("bhavnagar_2").style.display = "none";
+  			document.getElementById("rajkot_2").style.display = "none";
+
+  			document.getElementById("valsad_3").style.display = "none";
+  			document.getElementById("junagadh_3").style.display = "none";
+  			document.getElementById("nadiad_3").style.display = "none";
+  			document.getElementById("surat_3").style.display = "none";
+  			document.getElementById("bhavnagar_3").style.display = "block";
+  			document.getElementById("rajkot_3").style.display = "none";
+
+  			document.getElementById("errorDiv").style.display = "none";
+      }
+
+      if(d == "Rajkot"){
+			document.getElementById("valsad_1").style.display = "none";
+  			document.getElementById("junagadh_1").style.display = "none";
+  			document.getElementById("nadiad_1").style.display = "none";
+  			document.getElementById("surat_1").style.display = "none";
+  			document.getElementById("bhavnagar_1").style.display = "none";
+  			document.getElementById("rajkot_1").style.display = "none";
+
+  			document.getElementById("valsad_2").style.display = "none";
+  			document.getElementById("junagadh_2").style.display = "none";
+  			document.getElementById("nadiad_2").style.display = "none";
+  			document.getElementById("surat_2").style.display = "none";
+  			document.getElementById("bhavnagar_2").style.display = "none";
+  			document.getElementById("rajkot_2").style.display = "none";
+
+  			document.getElementById("valsad_3").style.display = "none";
+  			document.getElementById("junagadh_3").style.display = "none";
+  			document.getElementById("nadiad_3").style.display = "none";
+  			document.getElementById("surat_3").style.display = "none";
+  			document.getElementById("bhavnagar_3").style.display = "none";
+  			document.getElementById("rajkot_3").style.display = "block";
+
+  			document.getElementById("errorDiv").style.display = "none";
+      }
+}
+else{
+  		document.getElementById("valsad_1").style.display = "none";
+  			document.getElementById("junagadh_1").style.display = "none";
+  			document.getElementById("nadiad_1").style.display = "none";
+  			document.getElementById("surat_1").style.display = "none";
+  			document.getElementById("bhavnagar_1").style.display = "none";
+  			document.getElementById("rajkot_1").style.display = "none";
+
+
+  			document.getElementById("valsad_2").style.display = "none";
+  			document.getElementById("junagadh_2").style.display = "none";
+  			document.getElementById("nadiad_2").style.display = "none";
+  			document.getElementById("surat_2").style.display = "none";
+  			document.getElementById("bhavnagar_2").style.display = "none";
+  			document.getElementById("rajkot_2").style.display = "none";
+
+
+  			document.getElementById("valsad_3").style.display = "none";
+  			document.getElementById("junagadh_3").style.display = "none";
+  			document.getElementById("nadiad_3").style.display = "none";
+  			document.getElementById("surat_3").style.display = "none";
+  			document.getElementById("bhavnagar_3").style.display = "none";
+  			document.getElementById("rajkot_3").style.display = "none";
+
+  			document.getElementById("errorDiv").style.display = "block";
+
+	}
+}
+});</script>
+	</body>
+</html>
